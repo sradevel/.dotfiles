@@ -14,7 +14,7 @@ case `uname` in
           export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 	;;
         Linux)
-	  export ZSH="/home/sraabe/.oh-my-zsh"
+	  export ZSH=$HOME/.oh-my-zsh
 	;;
 esac
 
