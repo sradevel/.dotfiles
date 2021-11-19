@@ -22,6 +22,8 @@ ZSH_THEME="robbyrussell"
 
 # change directory without cd
 setopt autocd
+# dont ask for confirmation on rm *
+setopt rmstarsilent
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
