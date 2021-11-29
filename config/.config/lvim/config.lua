@@ -58,11 +58,33 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.plugins = {
    {"sainnhe/gruvbox-material"},
    {"shatur/neovim-cmake"},
-   {"theHamsta/nvim-dap-virtual-text",
-    config = function()
-        require("nvim-dap-virtual-text").setup()
-        end,
-    },
+   {"theHamsta/nvim-dap-virtual-text"},
+-- {
+--   "kevinhwang91/nvim-bqf",
+--   event = { "BufRead", "BufNew" },
+--   config = function()
+--   require("bqf").setup({
+--           auto_enable = true,
+--           preview = {
+--           win_height = 12,
+--           win_vheight = 12,
+--           delay_syntax = 80,
+--           border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+--           },
+--           func_map = {
+--           vsplit = "",
+--           ptogglemode = "z,",
+--           stoggleup = "",
+--           },
+--           filter = {
+--           fzf = {
+--           action_for = { ["ctrl-s"] = "split" },
+--           extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+--           },
+--           },
+--           })
+--   end,
+-- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -144,6 +166,9 @@ dap.configurations.cpp = {
   }
 }
 dap.configurations.c = dap.configurations.cpp
+require("nvim-dap-virtual-text").setup { -- this doesnt work... why?
+    enabled = true,
+}
 
 -- CMake Whickkey Menu
 lvim.builtin.which_key.mappings["C"] = {
