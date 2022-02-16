@@ -59,32 +59,42 @@ lvim.plugins = {
    {"sainnhe/gruvbox-material"},
    {"shatur/neovim-cmake"},
    {"theHamsta/nvim-dap-virtual-text"},
--- {
---   "kevinhwang91/nvim-bqf",
---   event = { "BufRead", "BufNew" },
---   config = function()
---   require("bqf").setup({
---           auto_enable = true,
---           preview = {
---           win_height = 12,
---           win_vheight = 12,
---           delay_syntax = 80,
---           border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
---           },
---           func_map = {
---           vsplit = "",
---           ptogglemode = "z,",
---           stoggleup = "",
---           },
---           filter = {
---           fzf = {
---           action_for = { ["ctrl-s"] = "split" },
---           extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
---           },
---           },
---           })
---   end,
--- },
+   {
+      "folke/trouble.nvim",
+        cmd = "TroubleToggle",
+   },
+   -- {
+   --  "folke/todo-comments.nvim",
+   --  config = function()
+   --    require("todo-comments").setup()
+   --  end,
+   -- },
+    -- {
+    --   "kevinhwang91/nvim-bqf",
+    --   event = { "BufRead", "BufNew" },
+    --   config = function()
+    --   require("bqf").setup({
+    --           auto_enable = true,
+    --           preview = {
+    --           win_height = 12,
+    --           win_vheight = 12,
+    --           delay_syntax = 80,
+    --           border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+    --           },
+    --           func_map = {
+    --           vsplit = "",
+    --           ptogglemode = "z,",
+    --           stoggleup = "",
+    --           },
+    --           filter = {
+    --           fzf = {
+    --           action_for = { ["ctrl-s"] = "split" },
+    --           extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+    --           },
+    --           },
+    --           })
+    --   end,
+    -- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -190,6 +200,15 @@ require('cmake').setup({
     runInTerminal = false,
 }})
 
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Diagnostics",
+  t = { "<cmd>TroubleToggle<cr>", "trouble" },
+  w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace" },
+  d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
+  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+}
 -- Debug Whichkey Menu
 -- lvim.builtin.which_key.mappings["d"] = {
 --   name = "Debug",
