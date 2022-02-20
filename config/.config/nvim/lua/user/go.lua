@@ -13,6 +13,8 @@ require 'go'.setup({
   lsp_gofumpt = true, -- true: set default gofmt in gopls format to gofumpt
   lsp_on_attach = true, -- use on_attach from go.nvim
   dap_debug = true,
+  test_runner = 'richgo',
+  run_in_floaterm = true,
 })
 
 local lsp_installer_servers = require'nvim-lsp-installer.servers'
