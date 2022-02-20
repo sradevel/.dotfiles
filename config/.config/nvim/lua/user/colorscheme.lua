@@ -5,9 +5,9 @@ nightfox.setup({
   fox = "nightfox",
   alt_nc = true,
   styles = {
-    comments = "italic",
+    -- comments = "italic",
     keywords = "bold",
-    functions = "italic,bold",
+    functions = "bold",
   },
   inverse = {
     visual = true,

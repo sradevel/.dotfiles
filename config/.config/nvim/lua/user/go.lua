@@ -1,4 +1,3 @@
-
 local home = os.getenv("HOME");
 
 require 'go'.setup({
@@ -13,7 +12,7 @@ require 'go'.setup({
   lsp_gofumpt = true, -- true: set default gofmt in gopls format to gofumpt
   lsp_on_attach = true, -- use on_attach from go.nvim
   dap_debug = true,
-  test_runner = 'richgo',
+--  test_runner = 'richgo',
   run_in_floaterm = true,
 })
 

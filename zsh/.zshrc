@@ -2,6 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
+
 case `uname` in
         Darwin)
           export ZSH="/Users/sraabe/.oh-my-zsh"
@@ -12,9 +15,11 @@ case `uname` in
           #set Compiler Flags
           export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -Wl,-rpath,/opt/homebrew/opt/llvm/lib"
           export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+          export PATH=$PATH:/Users/sraabe/tools/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.go/bin
 	;;
         Linux)
-	  export ZSH=$HOME/.oh-my-zsh
+	        export ZSH=$HOME/.oh-my-zsh
+          export PATH=$PATH:$HOME/go/bin
 	;;
 esac
 
@@ -40,4 +45,3 @@ source ~/.aliases
 
 export EDITOR=nvim
 export VISUAL=nvim
-export PATH=/Users/sraabe/tools/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
