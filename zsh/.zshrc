@@ -40,4 +40,4 @@ source ~/.aliases
 
 export EDITOR=nvim
 export VISUAL=nvim
-export PATH=/Users/sraabe/tools/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/Users/sraabe/tools/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
