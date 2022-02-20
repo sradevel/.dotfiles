@@ -1,4 +1,12 @@
-alias ls="gls -FlhaN --group-directories-first --color=auto"
+
+case `uname` in
+        Darwin)
+          alias ls="gls -FlhaN --group-directories-first --color=auto"
+	;;
+        Linux)
+          alias ls="ls -la"
+	;;
+esac
 
 if [ -f ~/.local/bin/lvim ]; then
     alias lvim=~/.local/bin/lvim
