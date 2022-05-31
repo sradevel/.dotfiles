@@ -1,21 +1,22 @@
 -- Nightfox config
 local nightfox = require("nightfox")
 nightfox.setup({
-  --fox = "nordfox",
-  fox = "nightfox",
-  alt_nc = true,
-  styles = {
-    -- comments = "italic",
-    keywords = "bold",
-    functions = "bold",
-  },
-  inverse = {
-    visual = true,
-    search = true,
-    match_paren = true,
-  },
+  options = {
+    dim_inactive = true,
+
+    styles = {
+      keywords = "bold",
+      functions = "bold",
+    },
+    inverse = {
+      visual = true,
+      search = true,
+      match_paren = true,
+    },
+  }
 })
-nightfox.load()
+
+vim.cmd("colorscheme nightfox")
 
 -- Good info on overriding colors: https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 -- Note had to add the SpecialKey to keep highlight on yank working alongside the CursorLine override
