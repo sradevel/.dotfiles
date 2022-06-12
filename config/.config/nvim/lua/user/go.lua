@@ -1,6 +1,17 @@
 local home = os.getenv("HOME");
 
 require 'go'.setup({
+  dap_debug_vt = true,
+  dap_debug_gui = true,
+  dap_debug = true,
+  run_in_floaterm = true
+})
+
+-- Run gofmt + goimport on save
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
+
+--[[
+require 'go'.setup({
   goimport = 'gopls', -- if set to 'gopls' will use golsp format
   gofmt = 'gopls', -- if set to gopls will use golsp format
   gopls_cmd = {home .. '/.local/share/nvim/lsp_servers/go/gopls'},
@@ -11,9 +22,8 @@ require 'go'.setup({
   lsp_cfg = false, -- false: use your own lspconfig
   lsp_gofumpt = true, -- true: set default gofmt in gopls format to gofumpt
   lsp_on_attach = true, -- use on_attach from go.nvim
-  dap_debug = true,
---  test_runner = 'richgo',
-  run_in_floaterm = true,
+  dap_debug = true, 
+  run_in_floaterm = false,
 })
 
 local lsp_installer_servers = require'nvim-lsp-installer.servers'
@@ -29,3 +39,4 @@ if server_available then
         requested_server:install()
     end
 end
+--]]
