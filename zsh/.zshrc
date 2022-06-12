@@ -7,15 +7,15 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
 
 case `uname` in
         Darwin)
-          export ZSH="/Users/sraabe/.oh-my-zsh"
-          # set C Compiler
-          export CC=/opt/homebrew/opt/llvm/bin/clang
-          export CXX=/opt/homebrew/opt/llvm/bin/clang++
+           export ZSH="/Users/sraabe/.oh-my-zsh"
+#          # set C Compiler
+#          export CC=/opt/homebrew/opt/llvm/bin/clang
+#          export CXX=/opt/homebrew/opt/llvm/bin/clang++
 
           #set Compiler Flags
-          export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -Wl,-rpath,/opt/homebrew/opt/llvm/lib"
-          export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-          export PATH=$PATH:/Users/sraabe/tools/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/.go/bin
+#          export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -Wl,-rpath,/opt/homebrew/opt/llvm/lib"
+#          export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+          export PATH=$PATH:/Users/sraabe/tools/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/go/bin
 	;;
         Linux)
 	        export ZSH=$HOME/.oh-my-zsh
