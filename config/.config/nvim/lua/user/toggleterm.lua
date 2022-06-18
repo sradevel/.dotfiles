@@ -4,7 +4,13 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 20,
+	size = function(term)
+    if term.direction == "horizontal" then
+      return 15
+    elseif term.direction == "vertical" then
+      return vim.o.columns * 0.4
+    end
+  end,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
@@ -39,7 +45,7 @@ end
 -- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = require("toggleterm.terminal").Terminal
--- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
 local lazygit = Terminal:new({
   cmd = "lazygit",
   dir = "git_dir",
@@ -57,6 +63,7 @@ local lazygit = Terminal:new({
     vim.cmd("Closing terminal")
   end,
 })
+
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
@@ -76,26 +83,32 @@ function _TOGGLE_FLOATTERM()
   floatTerm:toggle()
 end
 
-local node = Terminal:new({ cmd = "node", hidden = true })
-
-function _NODE_TOGGLE()
-	node:toggle()
-end
-
-local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
-
-function _NCDU_TOGGLE()
-	ncdu:toggle()
-end
-
-local htop = Terminal:new({ cmd = "htop", hidden = true })
+local htop = Terminal:new({ 
+  direction = "float",
+  cmd = "htop", 
+})
 
 function _HTOP_TOGGLE()
 	htop:toggle()
 end
 
-local python = Terminal:new({ cmd = "python", hidden = true })
+local create_term =  function (dir)
+  return Terminal:new({
+    direction = dir,
+    on_open = function(term)
+      vim.cmd("startinsert!")
+      set_terminal_keymaps()
+    end
+  })
+end
 
-function _PYTHON_TOGGLE()
-	python:toggle()
+local vert_term = create_term("vertical")
+local hori_term = create_term("horizontal")
+
+function _VERT_TOGGLE()
+  vert_term:toggle()
+end
+
+function _HORI_TOGGLE()
+  hori_term:toggle()
 end
