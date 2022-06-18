@@ -88,6 +88,7 @@ local mappings = {
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["C"] = { "<cmd>close<cr>", "Close Window"},
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -125,6 +126,29 @@ local mappings = {
     d = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
+    },
+  },
+
+  G = {
+    name = "Golang",
+    r = { "<cmd>GoRun<cr>", "Run"},
+    b = { "<cmd>GoBuild<cr>", "Build"},
+    t = { "<cmd>GoTest<cr>", "Run all tests"},
+    s = { "<cmd>GoStop<cr>", "Stop current running process."},
+    c = { "<cmd>close<cr>", "Close test result window."},
+    T = {
+      name = "Tests",
+      t = { "<cmd>GoTest<cr>", "Runn all tests"},
+      f = { "<cmd>GoTestFunc<cr>", "Run current test func"},
+      F = { "<cmd>GoTestFile<cr>", "Run current tests in file"},
+    },
+    d = {
+      name = "Debug",
+      d = { "<cmd>GoDebug<cr>", "Start debugging." },
+      t = { "<cmd>GoDebug -t<cr>", "Start debugging tests."},
+      s = { "<cmd>GoDebug -s<cr>", "Stop debugging"},
+      b = { "<cmd>GoBreakToggle<cr>", "Toggle breakpoint"},
+      B = { "<cmd>GoBreakCondition<cr>", "Conditional breakpoint"},
     },
   },
 
