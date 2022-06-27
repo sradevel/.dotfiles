@@ -1,7 +1,5 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -68,6 +66,7 @@ keymap("n", "<F11>", ":lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F12>", ":lua require'dap'.step_out()<CR>", opts)
 keymap("n", "<F12>", ":lua require'dap'.step_out()<CR>", opts)
 
+vim.keymap.set("n", "<C-i", function() print("Hello World!") end, {silent = true})
 
 -- Terminal --
 -- Better terminal navigation
