@@ -35,6 +35,7 @@ local options = {
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   autoread = true,
+  spelllang = "en,de" ,
 }
 
 vim.opt.shortmess:append "c"
