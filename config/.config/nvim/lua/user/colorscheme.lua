@@ -1,42 +1,46 @@
--- Nightfox config
-local nightfox = require("nightfox")
-nightfox.setup({
-  options = {
-    dim_inactive = true,
-
-    styles = {
-      keywords = "bold",
-      functions = "bold",
+require("catppuccin").setup({
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    background = { -- :h background
+        light = "latte",
+        dark = "mocha",
     },
-    inverse = {
-      visual = true,
-      search = true,
-      match_paren = true,
+    transparent_background = false, -- disables setting the background color.
+    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+    term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+    dim_inactive = {
+        enabled = true, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
     },
-  }
+    no_italic = true, -- Force no italic
+    no_bold = true, -- Force no bold
+    no_underline = true, -- Force no underline
+    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = { "italic" }, -- Change the style of comments
+        conditionals = { "italic" },
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+    },
+    color_overrides = {},
+    custom_highlights = {},
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        notify = false,
+        mini = false,
+        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+    },
 })
 
-vim.cmd("colorscheme nightfox")
-
--- Good info on overriding colors: https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
--- Note had to add the SpecialKey to keep highlight on yank working alongside the CursorLine override
-vim.api.nvim_exec(
-  [[
-function! MyHighlights() abort
-    highlight CursorLine guifg=NONE guibg=#353A54
-    highlight CmpItemAbbr guifg=#9FA4B6
-    highlight SpecialKey guibg=NONE
-    highlight CmpItemKind guifg=#8289A0
-    highlight CmpItemMenu guifg=#8289A0
-    highlight PmenuSel guibg=#73daca guifg=#111111
-    highlight Pmenu guibg=#2E3248
-    highlight GitSignsAddNr guifg=#26A07A
-    highlight GitSignsDeleteNr guifg=#E87D7D
-    highlight GitSignsChangeNr guifg=#AD991F
-    endfunction
-augroup MyColors
-    autocmd!
-    autocmd ColorScheme * call MyHighlights()
-augroup END]],
-  true
-)
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"
