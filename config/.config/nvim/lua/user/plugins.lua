@@ -63,6 +63,7 @@ return packer.startup(function(use)
   use "theHamsta/nvim-dap-virtual-text"
   use "ray-x/guihua.lua"
   use "ray-x/go.nvim"
+  use "christoomey/vim-tmux-navigator"
   --[[ use 'Civitasv/cmake-tools.nvim' ]]
 
   -- Colorschemes

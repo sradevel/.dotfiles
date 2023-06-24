@@ -8,14 +8,8 @@ case `uname` in
 	;;
 esac
 
-if [ -f ~/.local/bin/lvim ]; then
-    alias lvim=~/.local/bin/lvim
-    alias vi=lvim
-    alias vim=lvim
-else
-    alias vi=/opt/homebrew/bin/nvim
-    alias vim=/opt/homebrew/bin/nvim
-fi
+alias vi=/opt/homebrew/bin/nvim
+alias vim=/opt/homebrew/bin/nvim
 
 alias python3=/opt/homebrew/bin/python3
 alias cat=bat
