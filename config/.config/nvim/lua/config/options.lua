@@ -10,4 +10,9 @@ vim.filetype.add({
   pattern = {
     [".*.ssh/config.d/.*"] = "sshconfig",
   },
+  filename = {
+    ["justfile"] = "make",
+  },
 })
+
+-- require("config.gosnippets")
