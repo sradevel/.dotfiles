@@ -54,6 +54,7 @@ bindkey '^j' down-line-or-search
 
 source $ZSH/oh-my-zsh.sh
 
+bindkey -v
 
 # my aliases
 source ~/.aliases
